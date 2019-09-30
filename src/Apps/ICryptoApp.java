@@ -23,20 +23,6 @@ public abstract class ICryptoApp {
         return false;
     }
 
-    protected char convertChar(char current, int shift) {
-        int posUpper = getPosChar(alphabetUpper, current);
-        if (posUpper != NOT_FOUND) {
-            return getCharFromAplhabetWithShift(alphabetUpper, posUpper, shift);
-        }
-
-        int posLower = getPosChar(alphabetLower, current);
-        if (posLower != NOT_FOUND) {
-            return getCharFromAplhabetWithShift(alphabetLower, posLower, shift);
-        }
-
-        return current;
-    }
-
     protected int getPosChar(String alphabet, char current) {
         for (int i = 0; i < alphabet.length(); i++) {
             if (current == alphabet.charAt(i)) return i;
@@ -53,7 +39,20 @@ public abstract class ICryptoApp {
         return newPos;
     }
 
+    protected int calcNewPosCharReverse (int pos, int shift) {
+        int size = alphabetLower.length();
+        int newPos = pos - shift;
+
+        if (newPos < 0) { newPos += size; }
+
+        return newPos;
+    }
+
     protected char getCharFromAplhabetWithShift(String alphabet, int curPos, int shift) {
         return alphabet.charAt(calcNewPosChar(curPos, shift));
+    }
+
+    protected char getCharFromAplhabetWithShiftReverse(String alphabet, int curPos, int shift) {
+        return alphabet.charAt(calcNewPosCharReverse(curPos, shift));
     }
 }

@@ -28,16 +28,17 @@ public class Application {
     public static void main(String[] args) {
         MainSettings mainSettings = MainSettings.getInstance();
         mainSettings.setShift(3);
+        mainSettings.setMinimumRatingChar('в');
 
         IRepository repo = new FileRepository();
-        ICryptoApp app = getApp(ApplicationsTypes.ENCODE_APP);
+        ICryptoApp app = getApp(ApplicationsTypes.DECODE_APP);
 
         if (app == null) {
             System.out.println("Application not found!");
             return;
         }
 
-        String fileData = repo.Read("data.txt");
+        String fileData = repo.Read("out.txt");
 
         if (fileData == null) {
             System.out.println("Can't read file!");
@@ -47,7 +48,7 @@ public class Application {
         app.SetData(fileData);
         app.Run();
 
-        if (!repo.Write("out.txt", app.GetResult())) {
+        if (!repo.Write("out2.txt", app.GetResult())) {
             System.out.println("Can't write to file!");
             return;
         }

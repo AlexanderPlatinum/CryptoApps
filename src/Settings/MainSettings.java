@@ -3,6 +3,7 @@ package Settings;
 public class MainSettings {
 
     private int shift = 0;
+    private char minimumRatingChar = '\0';
 
     private static MainSettings instance = null;
 
@@ -22,5 +23,13 @@ public class MainSettings {
 
     public void setShift(int shift) {
         this.shift = shift;
+    }
+
+    public char getMinimumRatingChar() {
+        return minimumRatingChar;
+    }
+
+    public void setMinimumRatingChar(char minimumRatingChar) {
+        this.minimumRatingChar = minimumRatingChar;
     }
 }
