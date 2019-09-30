@@ -3,6 +3,7 @@ import Apps.EncodeApp;
 import Apps.ICryptoApp;
 import Reposiroty.FileRepository;
 import Reposiroty.IRepository;
+import Settings.MainSettings;
 
 public class Application {
 
@@ -25,6 +26,8 @@ public class Application {
     }
 
     public static void main(String[] args) {
+        MainSettings mainSettings = MainSettings.getInstance();
+        mainSettings.setShift(3);
 
         IRepository repo = new FileRepository();
         ICryptoApp app = getApp(ApplicationsTypes.ENCODE_APP);
@@ -44,7 +47,7 @@ public class Application {
         app.SetData(fileData);
         app.Run();
 
-        if (repo.Write("out.txt", app.GetResult())) {
+        if (!repo.Write("out.txt", app.GetResult())) {
             System.out.println("Can't write to file!");
             return;
         }

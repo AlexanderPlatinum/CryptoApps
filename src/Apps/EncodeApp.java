@@ -1,5 +1,7 @@
 package Apps;
 
+import Settings.MainSettings;
+
 public class EncodeApp implements ICryptoApp {
 
     private String toEncode = null;
@@ -14,6 +16,9 @@ public class EncodeApp implements ICryptoApp {
 
     public EncodeApp () {
         strBuffer = new StringBuilder();
+
+        MainSettings mainSettings = MainSettings.getInstance();
+        this.shift = mainSettings.getShift();
     }
 
     public int GetShift() {
@@ -32,7 +37,6 @@ public class EncodeApp implements ICryptoApp {
     @Override
     public void Run() {
         for (int i = 0; i < toEncode.length(); i++) {
-
             char currentChar = toEncode.charAt(i);
 
             if (isNeededChar(currentChar)) {
@@ -40,7 +44,6 @@ public class EncodeApp implements ICryptoApp {
             }
 
             strBuffer.append(currentChar);
-
         }
     }
 
