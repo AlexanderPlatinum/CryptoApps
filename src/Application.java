@@ -27,7 +27,7 @@ public class Application {
     public static void main(String[] args) {
 
         IRepository repo = new FileRepository();
-        ICryptoApp app = getApp(ApplicationsTypes.DECODE_APP);
+        ICryptoApp app = getApp(ApplicationsTypes.ENCODE_APP);
 
         if (app == null) {
             System.out.println("Application not found!");
