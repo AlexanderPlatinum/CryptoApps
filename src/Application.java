@@ -34,9 +34,21 @@ public class Application {
             return;
         }
 
-        app.SetData(repo.Read(""));
+        String fileData = repo.Read("data.txt");
+
+        if (fileData == null) {
+            System.out.println("Can't read file!");
+            return;
+        }
+
+        app.SetData(fileData);
         app.Run();
 
-        repo.Write("", app.GetResult());
+        if (repo.Write("out.txt", app.GetResult())) {
+            System.out.println("Can't write to file!");
+            return;
+        }
+
+        System.out.println("It's gonna be OK");
     }
 }

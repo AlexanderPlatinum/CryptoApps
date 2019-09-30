@@ -1,13 +1,33 @@
 package Reposiroty;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class FileRepository implements IRepository {
     @Override
     public String Read(String fileName) {
-        return null;
+        try {
+            FileInputStream fin = new FileInputStream(fileName);
+            byte[] buffer = new byte[fin.available()];
+
+            fin.read(buffer, 0, fin.available());
+
+            return new String(buffer);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public boolean Write(String fileName, String data) {
-        return false;
+        try {
+            FileOutputStream fout = new FileOutputStream(fileName);
+            fout.write(data.getBytes());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
