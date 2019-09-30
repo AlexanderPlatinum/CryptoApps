@@ -1,8 +1,8 @@
 import Apps.DecodeApp;
 import Apps.EncodeApp;
 import Apps.ICryptoApp;
-import Reposiroty.FileRepository;
-import Reposiroty.IRepository;
+import Repository.FileRepository;
+import Repository.IRepository;
 import Settings.MainSettings;
 
 public class Application {

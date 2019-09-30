@@ -1,4 +1,4 @@
-package Reposiroty;
+package Repository;
 
 public interface IRepository {
     String Read(String fileName);

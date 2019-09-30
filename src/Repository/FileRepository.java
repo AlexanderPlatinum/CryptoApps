@@ -1,4 +1,4 @@
-package Reposiroty;
+package Repository;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
