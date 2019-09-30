@@ -16,14 +16,6 @@ public class EncodeApp extends ICryptoApp {
         this.shift = mainSettings.getShift();
     }
 
-    public int GetShift() {
-        return shift;
-    }
-
-    public void SetShift(int shift) {
-        this.shift = shift;
-    }
-
     @Override
     public void SetData(String data) {
         toEncode = data;
