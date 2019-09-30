@@ -55,4 +55,32 @@ public abstract class ICryptoApp {
     protected char getCharFromAplhabetWithShiftReverse(String alphabet, int curPos, int shift) {
         return alphabet.charAt(calcNewPosCharReverse(curPos, shift));
     }
+
+    protected char convertChar(char current, int shift) {
+        int posUpper = getPosChar(alphabetUpper, current);
+        if (posUpper != NOT_FOUND) {
+            return getCharFromAplhabetWithShift(alphabetUpper, posUpper, shift);
+        }
+
+        int posLower = getPosChar(alphabetLower, current);
+        if (posLower != NOT_FOUND) {
+            return getCharFromAplhabetWithShift(alphabetLower, posLower, shift);
+        }
+
+        return current;
+    }
+
+    protected char convertCharReverse (char currentChar, int shift) {
+        int posUpper = getPosChar(alphabetUpper, currentChar);
+        if (posUpper != NOT_FOUND) {
+            currentChar = getCharFromAplhabetWithShiftReverse(alphabetUpper, posUpper, shift);
+        }
+
+        int posLower = getPosChar(alphabetLower, currentChar);
+        if (posLower != NOT_FOUND) {
+            currentChar = getCharFromAplhabetWithShiftReverse(alphabetLower, posLower, shift);
+        }
+
+        return currentChar;
+    }
 }

@@ -25,7 +25,7 @@ public class DecodeApp extends ICryptoApp {
             char currentChar = toAnalyze.charAt(i);
 
             if (isNeededChar(currentChar)) {
-                currentChar = convertChar(currentChar, shift);
+                currentChar = convertCharReverse(currentChar, shift);
             }
 
             strBuffer.append(currentChar);
@@ -35,20 +35,6 @@ public class DecodeApp extends ICryptoApp {
     @Override
     public String GetResult() {
         return strBuffer.toString();
-    }
-
-    private char convertChar (char currentChar, int shift) {
-        int posUpper = getPosChar(alphabetUpper, currentChar);
-        if (posUpper != NOT_FOUND) {
-            currentChar = getCharFromAplhabetWithShiftReverse(alphabetUpper, posUpper, shift);
-        }
-
-        int posLower = getPosChar(alphabetLower, currentChar);
-        if (posLower != NOT_FOUND) {
-            currentChar = getCharFromAplhabetWithShiftReverse(alphabetLower, posLower, shift);
-        }
-
-        return currentChar;
     }
 
     private int Analyze() {

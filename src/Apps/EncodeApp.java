@@ -42,20 +42,6 @@ public class EncodeApp extends ICryptoApp {
         }
     }
 
-    private char convertChar(char current, int shift) {
-        int posUpper = getPosChar(alphabetUpper, current);
-        if (posUpper != NOT_FOUND) {
-            return getCharFromAplhabetWithShift(alphabetUpper, posUpper, shift);
-        }
-
-        int posLower = getPosChar(alphabetLower, current);
-        if (posLower != NOT_FOUND) {
-            return getCharFromAplhabetWithShift(alphabetLower, posLower, shift);
-        }
-
-        return current;
-    }
-
     @Override
     public String GetResult() {
         return strBuffer.toString();
