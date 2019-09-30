@@ -1,4 +1,5 @@
 import Apps.DecodeApp;
+import Apps.DecodeAppExtended;
 import Apps.EncodeApp;
 import Apps.ICryptoApp;
 import Repository.FileRepository;
@@ -9,16 +10,20 @@ public class Application {
 
     enum ApplicationsTypes {
         ENCODE_APP,
-        DECODE_APP
+        DECODE_APP,
+        DECODE_EXTENDED_APP
     }
 
     private static ICryptoApp getApp(ApplicationsTypes type) {
         switch (type) {
+            case ENCODE_APP:
+                return new EncodeApp();
+
             case DECODE_APP:
                 return new DecodeApp();
 
-            case ENCODE_APP:
-                return new EncodeApp();
+            case DECODE_EXTENDED_APP:
+                return new DecodeAppExtended();
 
             default:
                 return null;
