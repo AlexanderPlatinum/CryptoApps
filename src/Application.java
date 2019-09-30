@@ -1,6 +1,8 @@
 import Apps.DecodeApp;
 import Apps.EncodeApp;
 import Apps.ICryptoApp;
+import Reposiroty.FileRepository;
+import Reposiroty.IRepository;
 
 public class Application {
 
@@ -24,6 +26,7 @@ public class Application {
 
     public static void main(String[] args) {
 
+        IRepository repo = new FileRepository();
         ICryptoApp app = getApp(ApplicationsTypes.DECODE_APP);
 
         if (app == null) {
@@ -31,11 +34,9 @@ public class Application {
             return;
         }
 
-        app.SetData("");
+        app.SetData(repo.Read(""));
         app.Run();
 
-        String result = app.GetResult();
-
-        System.out.println(result);
+        repo.Write("", app.GetResult());
     }
 }
