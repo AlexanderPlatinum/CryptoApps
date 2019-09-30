@@ -1,6 +1,6 @@
 package Apps;
 
-public class DecodeApp implements ICryptoApp {
+public class DecodeApp extends ICryptoApp {
     @Override
     public void SetData(String data) {
 
