@@ -1,4 +1,4 @@
-package Utilities;
+package CryptoApps.Utilities;
 
 public class CryptoUtilities {
 

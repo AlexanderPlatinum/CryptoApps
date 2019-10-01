@@ -1,4 +1,4 @@
-package Apps;
+package CryptoApps.Apps;
 
 public interface ICryptoApp {
     void SetData(String data);

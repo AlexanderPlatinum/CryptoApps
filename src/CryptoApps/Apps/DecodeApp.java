@@ -1,7 +1,7 @@
-package Apps;
+package CryptoApps.Apps;
 
-import Settings.MainSettings;
-import Utilities.CryptoUtilities;
+import CryptoApps.Settings.MainSettings;
+import CryptoApps.Utilities.CryptoUtilities;
 
 public class DecodeApp extends CryptoUtilities implements ICryptoApp {
 

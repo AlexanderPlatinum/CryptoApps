@@ -1,4 +1,4 @@
-package Repository;
+package CryptoApps.Repository;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

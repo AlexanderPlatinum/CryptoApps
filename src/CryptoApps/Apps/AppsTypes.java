@@ -1,4 +1,4 @@
-package Apps;
+package CryptoApps.Apps;
 
 public enum AppsTypes {
     ENCODE_APP,

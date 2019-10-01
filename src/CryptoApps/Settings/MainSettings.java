@@ -1,4 +1,4 @@
-package Settings;
+package CryptoApps.Settings;
 
 public class MainSettings {
 

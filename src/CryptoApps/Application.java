@@ -1,7 +1,9 @@
-import Apps.*;
-import Repository.FileRepository;
-import Repository.IRepository;
-import Settings.MainSettings;
+package CryptoApps;
+
+import CryptoApps.Apps.*;
+import CryptoApps.Repository.FileRepository;
+import CryptoApps.Repository.IRepository;
+import CryptoApps.Settings.MainSettings;
 
 public class Application {
 
@@ -30,7 +32,7 @@ public class Application {
         app = getApp(type);
 
         if (app == null) {
-            System.out.println("Application not found!");
+            System.out.println("CryptoApps.Application not found!");
             return;
         }
 

@@ -1,4 +1,4 @@
-package Repository;
+package CryptoApps.Repository;
 
 public interface IRepository {
     String Read(String fileName);
