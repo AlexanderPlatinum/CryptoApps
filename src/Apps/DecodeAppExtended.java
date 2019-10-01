@@ -33,13 +33,6 @@ public class DecodeAppExtended extends ICryptoApp {
         int shiftFirst = calcShift(getPosCharGlobal(firstCharSettings), getPosCharGlobal(firstCharKey));
         int shiftLast  = calcShift(getPosCharGlobal(lastCharSettings), getPosCharGlobal(lastCharKey));
 
-        System.out.println(firstCharKey);
-        System.out.println(lastCharKey);
-
-        System.out.println(shiftFirst);
-
-        System.out.println(getPosCharGlobal(firstCharKey) + " " + getPosCharGlobal(firstCharSettings) );
-
         if (shiftFirst != shiftLast) {
             System.out.println("Keys not equals!");
             return;
