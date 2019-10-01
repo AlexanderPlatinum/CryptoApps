@@ -1,8 +1,9 @@
 package Apps;
 
 import Settings.MainSettings;
+import Utilities.CryptoUtilities;
 
-public class EncodeApp extends ICryptoApp {
+public class EncodeApp extends CryptoUtilities implements ICryptoApp {
 
     private String toEncode = null;
     private StringBuilder strBuffer;

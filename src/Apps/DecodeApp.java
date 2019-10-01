@@ -1,8 +1,9 @@
 package Apps;
 
 import Settings.MainSettings;
+import Utilities.CryptoUtilities;
 
-public class DecodeApp extends ICryptoApp {
+public class DecodeApp extends CryptoUtilities implements ICryptoApp {
 
     private String toAnalyze = null;
     private int[] statistics = new int[alphabetLower.length()];

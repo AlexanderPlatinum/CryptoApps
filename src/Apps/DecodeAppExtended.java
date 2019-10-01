@@ -1,14 +1,15 @@
 package Apps;
 
 import Settings.MainSettings;
+import Utilities.CryptoUtilities;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DecodeAppExtended extends ICryptoApp {
+public class DecodeAppExtended extends CryptoUtilities implements ICryptoApp {
 
     private String toDecode = null;
-    private Map<Integer, Integer> rating = new HashMap<Integer, Integer>();
+    private Map<Integer, Integer> rating = new HashMap<>();
     private StringBuilder strBuilder = new StringBuilder();
 
     @Override
@@ -35,7 +36,6 @@ public class DecodeAppExtended extends ICryptoApp {
 
         if (shiftFirst != shiftLast) {
             System.out.println("Keys not equals!");
-            return;
         } else {
             for (int i = 0; i < toDecode.length(); i++) {
                 char currentChar = toDecode.charAt(i);
