@@ -73,12 +73,12 @@ public abstract class ICryptoApp {
     protected char convertCharReverse (char currentChar, int shift) {
         int posUpper = getPosChar(alphabetUpper, currentChar);
         if (posUpper != NOT_FOUND) {
-            currentChar = getCharFromAplhabetWithShiftReverse(alphabetUpper, posUpper, shift);
+            return getCharFromAplhabetWithShiftReverse(alphabetUpper, posUpper, shift);
         }
 
         int posLower = getPosChar(alphabetLower, currentChar);
         if (posLower != NOT_FOUND) {
-            currentChar = getCharFromAplhabetWithShiftReverse(alphabetLower, posLower, shift);
+            return getCharFromAplhabetWithShiftReverse(alphabetLower, posLower, shift);
         }
 
         return currentChar;
