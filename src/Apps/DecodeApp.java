@@ -19,7 +19,15 @@ public class DecodeApp extends ICryptoApp {
 
     @Override
     public void Run() {
-        int shift = Analyze();
+        Analyze();
+
+        MainSettings settings = MainSettings.getInstance();
+        char minRatingChar = settings.getMinimumRatingChar();
+
+        int posMinimum = getPosMinimum();
+        int posMinimumSettings = getPosCharGlobal(minRatingChar);
+
+        int shift = calcShift(posMinimumSettings, posMinimum);
 
         for (int i = 0; i < toAnalyze.length(); i++) {
             char currentChar = toAnalyze.charAt(i);
@@ -37,7 +45,7 @@ public class DecodeApp extends ICryptoApp {
         return strBuilder.toString();
     }
 
-    private int Analyze() {
+    private void Analyze() {
         for (int i = 0; i < toAnalyze.length(); i++) {
 
             char currentChar = toAnalyze.charAt(i);
@@ -54,11 +62,6 @@ public class DecodeApp extends ICryptoApp {
                 }
             }
         }
-
-        int posMinimum = getPosMinimum();
-        int posMinimumSettings = getPosMinimumFromSettings();
-
-        return calcShift(posMinimumSettings, posMinimum);
     }
 
     private int getPosMinimum () {
@@ -73,22 +76,5 @@ public class DecodeApp extends ICryptoApp {
         }
 
         return pos;
-    }
-
-    private int getPosMinimumFromSettings () {
-        MainSettings settings = MainSettings.getInstance();
-        char currentChar = settings.getMinimumRatingChar();
-
-        int lowerPos = getPosChar(alphabetLower, currentChar);
-        if (lowerPos != NOT_FOUND) {
-            return lowerPos;
-        }
-
-        int upperPos = getPosChar(alphabetUpper, currentChar);
-        if (upperPos != NOT_FOUND) {
-            return upperPos;
-        }
-
-        return NOT_FOUND;
     }
 }

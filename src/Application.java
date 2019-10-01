@@ -32,7 +32,7 @@ public class Application {
         mainSettings.setMinCombCharLast('в');
 
         IRepository repo = new FileRepository();
-        ICryptoApp app = getApp(AppsTypes.DECODE_EXTENDED_APP);
+        ICryptoApp app = getApp(AppsTypes.DECODE_APP);
 
         if (app == null) {
             System.out.println("Application not found!");
