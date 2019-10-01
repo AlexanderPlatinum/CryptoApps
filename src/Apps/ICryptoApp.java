@@ -83,4 +83,31 @@ public abstract class ICryptoApp {
 
         return currentChar;
     }
+
+    protected int calcShift(int minimumEncoded, int minimumDecoded) {
+        int shift = minimumDecoded - minimumEncoded;
+
+        if ( shift < 0 ) {
+            shift += alphabetLower.length();
+        }
+
+        return shift;
+    }
+
+    protected int getPosCharGlobal(char currentChar) {
+        int result = NOT_FOUND;
+
+        int upperChar = getPosChar(alphabetUpper, currentChar);
+        int lowerChar = getPosChar(alphabetLower, currentChar);
+
+        if (upperChar != NOT_FOUND) {
+            result = upperChar;
+        }
+
+        if (lowerChar != NOT_FOUND) {
+            result = lowerChar;
+        }
+
+        return result;
+    }
 }

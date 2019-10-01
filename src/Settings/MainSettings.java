@@ -5,6 +5,9 @@ public class MainSettings {
     private int shift = 0;
     private char minimumRatingChar = '\0';
 
+    private char minCombCharFirst = '\0';
+    private char minCombCharLast  = '\0';
+
     private static MainSettings instance = null;
 
     private MainSettings() {}
@@ -31,5 +34,21 @@ public class MainSettings {
 
     public void setMinimumRatingChar(char minimumRatingChar) {
         this.minimumRatingChar = minimumRatingChar;
+    }
+
+    public char getMinCombCharFirst() {
+        return minCombCharFirst;
+    }
+
+    public void setMinCombCharFirst(char minCombCharFirst) {
+        this.minCombCharFirst = minCombCharFirst;
+    }
+
+    public char getMinCombCharLast() {
+        return minCombCharLast;
+    }
+
+    public void setMinCombCharLast(char minCombCharLast) {
+        this.minCombCharLast = minCombCharLast;
     }
 }

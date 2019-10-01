@@ -6,10 +6,10 @@ public class DecodeApp extends ICryptoApp {
 
     private String toAnalyze = null;
     private int[] statistics = new int[alphabetLower.length()];
-    private StringBuilder strBuffer;
+    private StringBuilder strBuilder;
 
     public DecodeApp() {
-        strBuffer = new StringBuilder();
+        strBuilder = new StringBuilder();
     }
 
     @Override
@@ -28,13 +28,13 @@ public class DecodeApp extends ICryptoApp {
                 currentChar = convertCharReverse(currentChar, shift);
             }
 
-            strBuffer.append(currentChar);
+            strBuilder.append(currentChar);
         }
     }
 
     @Override
     public String GetResult() {
-        return strBuffer.toString();
+        return strBuilder.toString();
     }
 
     private int Analyze() {
@@ -73,16 +73,6 @@ public class DecodeApp extends ICryptoApp {
         }
 
         return pos;
-    }
-
-    private int calcShift(int minimumEncoded, int minimumDecoded) {
-        int shift = minimumDecoded - minimumEncoded;
-
-        if ( shift < 0 ) {
-            shift += alphabetLower.length();
-        }
-
-        return shift;
     }
 
     private int getPosMinimumFromSettings () {

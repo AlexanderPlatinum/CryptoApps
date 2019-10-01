@@ -1,20 +1,11 @@
-import Apps.DecodeApp;
-import Apps.DecodeAppExtended;
-import Apps.EncodeApp;
-import Apps.ICryptoApp;
+import Apps.*;
 import Repository.FileRepository;
 import Repository.IRepository;
 import Settings.MainSettings;
 
 public class Application {
 
-    enum ApplicationsTypes {
-        ENCODE_APP,
-        DECODE_APP,
-        DECODE_EXTENDED_APP
-    }
-
-    private static ICryptoApp getApp(ApplicationsTypes type) {
+    private static ICryptoApp getApp(AppsTypes type) {
         switch (type) {
             case ENCODE_APP:
                 return new EncodeApp();
@@ -32,11 +23,16 @@ public class Application {
 
     public static void main(String[] args) {
         MainSettings mainSettings = MainSettings.getInstance();
+
         mainSettings.setShift(3);
+
         mainSettings.setMinimumRatingChar('в');
 
+        mainSettings.setMinCombCharFirst('и');
+        mainSettings.setMinCombCharLast('в');
+
         IRepository repo = new FileRepository();
-        ICryptoApp app = getApp(ApplicationsTypes.DECODE_APP);
+        ICryptoApp app = getApp(AppsTypes.DECODE_EXTENDED_APP);
 
         if (app == null) {
             System.out.println("Application not found!");
